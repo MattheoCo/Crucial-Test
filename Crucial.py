@@ -3,8 +3,10 @@
 # import tkinter as Tk
 import random
 
-score = 0
+score = []
 nb_joueur = 0
+J = -1
+lst_joueur = []
 
 def choix_joueur():
     print("Tapez 1 pour sciences")
@@ -32,21 +34,56 @@ def reponse_sciences(reponse, alea):
     global score
     reponses_sciences = ["S","neutron"]
     if reponses_sciences[alea] == reponse:
-        score = score + 1
-        print("Score : ", score)
+        score[J] = score[J]+1
+        print("Score : ", score[J])
+        return score
     else:
-        score = score
-        print("Score : ", score)
-#     
-# def joueur():
-#     global nb_joueur
-#     print("Combien de joueur êtes vous ?")
-#     nb_joueur = 
+        score[J] = score[J]
+        print("Score : ", score[J])
+        return score
+    
+def joueur():
+    global nb_joueur
+    global lst_joueur
+    print("Combien de joueur êtes vous ?")
+    nb_joueur = int(input())
+    print("Donné le nom des joueurs")
+    for loop in range(nb_joueur):
+        nom = str(input())
+        lst_joueur.append(nom)
+        score.append(0)
+    print(lst_joueur)
+    return nb_joueur
+
+def jeu():
+    '''fonction lancant le jeu'''
+    global J
+    global nb_joueur
+    t = 0
+    joueur()
+    print("Combien voulez vous de tour ?")
+    nb_tour = int(input())
+    nb_tour = nb_tour*nb_joueur
+    for loop in range(nb_tour):
+        for nb in range(len(lst_joueur)):
+            while t <= nb_tour:
+                t +=1
+                if J < nb_joueur-1:
+                    J += 1
+                    print(lst_joueur[J], ", à vous de jouer")
+                    choix_joueur()
+                elif J >= nb_joueur or J <= nb_joueur and t <= nb_tour:
+                    J = -1
+                    J += 1
+                    print(lst_joueur[J], ", à vous de jouer")
+                    choix_joueur()
+                else:
+                    print("Parti fini")
+
 # def point():
 #     '''compte les points'''
 #     
 # 
 # 
-# def jeu():
-#     '''fonction lancant le jeu'''
-choix_joueur()
+
+jeu()
