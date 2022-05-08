@@ -26,7 +26,7 @@ def question_choix(choix):
 
 def question_sciences():
     '''stock les questions sciences'''
-    quest = ["Quel est le symbole atomique du souffre ?", "Quelle particule est neutre ?"]
+    quest = ["Quel est le symbole atomique du soufre ?", "Quelle particule est neutre ?"]
     return(quest)
 
 def reponse_sciences(reponse, alea):
@@ -47,7 +47,7 @@ def joueur():
     global lst_joueur
     print("Combien de joueur êtes vous ?")
     nb_joueur = int(input())
-    print("Donné le nom des joueurs")
+    print("Donnez le nom des joueurs")
     for loop in range(nb_joueur):
         nom = str(input())
         lst_joueur.append(nom)
@@ -59,6 +59,7 @@ def jeu():
     '''fonction lancant le jeu'''
     global J
     global nb_joueur
+    global score
     t = 0
     joueur()
     print("Combien voulez vous de tour ?")
@@ -79,11 +80,17 @@ def jeu():
                     choix_joueur()
                 else:
                     print("Parti fini")
+                    print("Voulez vous voir les scores")
+                    tab = str(input())
+                    if tab == "oui":
+                        maNouvelleListe = list(zip(lst_joueur, score))
+                        print(maNouvelleListe)
+                    print("Voulez vous rejouez ?")
+                    demande = str(input())
+                    if demande == "oui":
+                        jeu()
+                    else:
+                        print("au revoir")
 
-# def point():
-#     '''compte les points'''
-#     
-# 
-# 
 
 jeu()
