@@ -11,7 +11,7 @@ lst_joueur = []
 def choix_joueur():
     print("Tapez 1 pour sciences")
     print("Tapez 2 pour Mathématiques")
-    print("Tapez 3 pour Histoires")
+    print("Tapez 3 pour Histoire")
     print("Tapez 4 pour Géographie")
     print("Tapez 5 pour Francais")
     choix = int(input())
@@ -64,7 +64,7 @@ def question_maths():
 
 def question_hist():
     '''stock les questions histoires'''
-    quest = ["Qui c'est fait décapiter le 16 Mai 68", "Quand se fini la seconde guerre mondiale ?"]
+    quest = ["Qui s'est fait décapiter le 16 Mai 68", "Quand se fini la seconde guerre mondiale ?"]
     return(quest)
 
 def question_geo():
