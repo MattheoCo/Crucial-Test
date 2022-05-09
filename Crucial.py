@@ -9,11 +9,23 @@ J = -1
 lst_joueur = []
 
 def choix_joueur():
-    print("Tapez 1 pour sciences")
-    print("Tapez 2 pour Mathématiques")
-    print("Tapez 3 pour Histoire")
-    print("Tapez 4 pour Géographie")
-    print("Tapez 5 pour Francais")
+    q1= random.randint(1, 5)
+    q2= random.randint(1, 5)
+    q3= random.randint(1, 5)
+    while q2 == q1 and q3 == q2:
+        q2= random.randint(1, 5)
+    while q3 == q1 and q3 == q2:
+        q3= random.randint(1, 5)
+    if q1 == 1 or q2 == 1 or q3 == 1:
+        print("Tapez 1 pour sciences")
+    if q1 == 2 or q2 == 2 or q3 == 2:
+        print("Tapez 2 pour Mathématiques")
+    if q1 == 3 or q2 == 3 or q3 == 3:
+        print("Tapez 3 pour Histoire")
+    if q1 == 4 or q2 == 4 or q3 == 4:
+        print("Tapez 4 pour Géographie")
+    if q1 == 5 or q2 == 5 or q3 == 5:
+        print("Tapez 5 pour Francais")
     choix = int(input())
     question_choix(choix)
 
@@ -162,14 +174,18 @@ def jeu():
                     print("Voulez vous voir les scores")
                     tab = str(input())
                     if tab == "oui":
-                        maNouvelleListe = list(zip(lst_joueur, score))
-                        print(maNouvelleListe)
+                        score_joueur = list(zip(lst_joueur, score))
+                        print(score_joueur)
+                        classement()
                     print("Voulez vous rejouez ?")
                     demande = str(input())
                     if demande == "oui":
                         jeu()
                     else:
                         print("au revoir")
+
+def classement():
+    
 
 def regle():
     print("Voici les règles du Crucial Test: ")
